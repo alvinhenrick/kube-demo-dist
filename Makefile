@@ -28,6 +28,9 @@ serve:
 portforward:
 	kubectl port-forward `kubectl get pods -n default -l service=ambassador -o jsonpath='{.items[0].metadata.name}'` -n default 8080:80
 
+predict:
+	curl -X POST -H 'Content-Type: application/json' -d '{"data":{"ndarray":[['I really liked the movie!'],['Hated every second of it...']]}}' http://localhost:8080/seldon/imdb-classification/api/v0.1/predictions
+
 clean:
 	kubectl delete -f tfjobdist.yaml
 	ks delete default -c imdb-classification
