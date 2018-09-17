@@ -22,7 +22,7 @@ s2ipush:
 	docker push alvinhenrick/imdb-classification:0.1
 
 serve:
-	ks generate seldon-serve-dist imdb-classification --image=alvinhenrick/imdb-classification:0.1
+	ks generate seldon-serve-simple imdb-classification --image=alvinhenrick/imdb-classification:0.1
 	ks apply default -c imdb-classification
 
 portforward:
