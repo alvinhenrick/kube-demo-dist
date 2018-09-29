@@ -22,8 +22,8 @@ s2ipush:
 	docker push alvinhenrick/imdb-classification:0.1
 
 serve:
-	ks generate seldon-serve-simple imdb-classification --image=alvinhenrick/imdb-classification:0.1
-	ks apply default -c imdb-classification
+	cd dist_demo_ks ; ks generate seldon-serve-simple imdb-classification --image=alvinhenrick/imdb-classification:0.1
+	cd dist_demo_ks ; ks apply default -c imdb-classification
 
 portforward:
 	kubectl port-forward `kubectl get pods -n default -l service=ambassador -o jsonpath='{.items[0].metadata.name}'` -n default 8080:80
@@ -33,7 +33,7 @@ predict:
 
 clean:
 	kubectl delete -f tfjobdist.yaml
-	ks delete default -c imdb-classification
-	ks component rm imdb-classification
+	cd dist_demo_ks ; ks delete default -c imdb-classification
+	cd dist_demo_ks ; ks component rm imdb-classification
 
 
