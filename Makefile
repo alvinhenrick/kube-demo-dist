@@ -33,6 +33,9 @@ portforward:
 predict:
 	curl -X POST -H 'Content-Type: application/json' -d '{"data":{"ndarray":[['I really liked the movie!'],['Hated every second of it...']]}}' http://localhost:8080/seldon/imdb-classification/api/v0.1/predictions
 
+tail:
+	kubectl logs -f kube-demo-dist-master-0
+
 clean:
 	kubectl delete -f tfjobdist.yaml
 	cd dist_demo_ks ; ks delete default -c imdb-classification
