@@ -31,7 +31,7 @@ spec:
         spec:
           containers:
           - name: tensorflow
-            image: alvinhenrick/kube-demo-dist
+            image: alvinhenrick/kube-demo-dist:1.1
             command: ["python", "/code/train_and_eval.py","--output_path=/model/imdb_model"]
             volumeMounts:
             - name: data
@@ -51,7 +51,7 @@ spec:
         spec:
           containers:
           - name: tensorflow
-            image: alvinhenrick/kube-demo-dist
+            image: alvinhenrick/kube-demo-dist:1.1
             command: ["python", "/code/train_and_eval.py","--output_path=/model/imdb_model"]
             volumeMounts:
             - name: data
