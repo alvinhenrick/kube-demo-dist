@@ -23,7 +23,7 @@ class ImdbClassifier(object):
         tf.logging.info("...done constructing classifier")
 
     def predict(self, input_data, feature_names):
-        indexes = [text_to_index(sentence) for sentence in input_data]
+        indexes = [text_to_index(sentence[0]) for sentence in input_data]
         x = sequence.pad_sequences(indexes,
                                    maxlen=sentence_size,
                                    truncating='post',
@@ -35,8 +35,9 @@ class ImdbClassifier(object):
 
         return [[x["class_ids"][0]] for x in predict_results]
 
+
 # if __name__ == '__main__':
 #     t = ImdbClassifier()
-#     results = t.predict([
-#         'I really liked the movie!', 'Hated every second of it...'])
+#     results = t.predict([[
+#         'I really liked the movie!'], ['Hated every second of it...']], None)
 #     print(results)

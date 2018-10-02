@@ -37,7 +37,7 @@ tail:
 	kubectl logs -f kube-demo-dist-master-0
 
 clean:
-	kubectl delete -f tfjobdist.yaml
+	# kubectl delete -f tfjobdist.yaml
 	cd dist_demo_ks ; ks delete default -c imdb-classification
 	cd dist_demo_ks ; ks component rm imdb-classification
 
