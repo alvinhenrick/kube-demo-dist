@@ -18,7 +18,7 @@ download:
 	kubectl cp dataaccess:/model/imdb_model ./imdb_model
 
 s2i:
-	s2i build . seldonio/seldon-core-s2i-python3:0.1 ${SERVE_IMAGE_BASE}:${VERSION} --env MODEL_NAME=ImdbClassifier --env API_TYPE=REST --env SERVICE_TYPE=MODEL --env PERSISTENCE=0
+	s2i build . seldonio/seldon-core-s2i-python3:0.1 ${SERVE_IMAGE_BASE}:${VERSION} --copy ./imdb_model --env MODEL_NAME=ImdbClassifier --env API_TYPE=REST --env SERVICE_TYPE=MODEL --env PERSISTENCE=0
 
 s2ipush:
 	docker push ${SERVE_IMAGE_BASE}:${VERSION}
@@ -35,6 +35,9 @@ predict:
 
 tail:
 	kubectl logs -f kube-demo-dist-master-0
+
+tailseldon:
+	kubectl logs -f `kubectl get pods -l seldon-app=imdb-classification -o=jsonpath='{.items[0].metadata.name}'` imdb-classification
 
 clean:
 	# kubectl delete -f tfjobdist.yaml
