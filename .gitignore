@@ -107,4 +107,3 @@ venv.bak/
 
 .idea
 imdb_model
-!/dist_demo_ks/*
