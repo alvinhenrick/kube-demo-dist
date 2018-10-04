@@ -15,7 +15,7 @@ def train_and_evaluate(main_args):
     run_config = tf.estimator.RunConfig(save_checkpoints_secs=EVAL_INTERVAL,
                                         keep_checkpoint_max=3)
 
-    # Create a custom estimator using my_model_fn to define the model
+    # Create a custom estimator using cnn_model_fn to define the model
     tf.logging.info("Before classifier construction")
 
     params = {'embedding_initializer': tf.random_uniform_initializer(-1.0, 1.0)}
