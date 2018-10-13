@@ -39,8 +39,10 @@ tail:
 tailseldon:
 	kubectl logs -f `kubectl get pods -l seldon-app=imdb-classification -o=jsonpath='{.items[0].metadata.name}'` imdb-classification
 
+stop:
+	kubectl delete -f tfjobdist.yaml
+
 clean:
-	# kubectl delete -f tfjobdist.yaml
 	cd dist_demo_ks ; ks delete default -c imdb-classification
 	cd dist_demo_ks ; ks component rm imdb-classification
 
