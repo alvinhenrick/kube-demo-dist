@@ -1,6 +1,6 @@
 ## How to install Kubeflow 
 
-**Optional** if you have already done it with my [kube-demo-simple example](https://github.com/alvinhenrick/kube-demo-simple/blob/master/README.md)
+**Optional** if you have already done it with my [kube-demo-simple](https://github.com/alvinhenrick/kube-demo-simple/blob/master/README.md) example.
 
 1. [Download](https://github.com/kubeflow/kubeflow/releases/tag/v0.2.7) and unzip Kubeflow to a directory e.g. `~/sdk/kubeflow-0.2.7`
 
