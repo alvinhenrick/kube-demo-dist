@@ -6,9 +6,9 @@
 
 2. Set the environment variable `export KUBEFLOW_REPO=~/sdk/kubeflow-0.2.7`
 
-3. Initialize the `ksonnet` app `ks init simple_demo_ks`
+3. Initialize the `ksonnet` app `ks init dist_demo_ks`
 
-4. Change directory to `cd simple_demo_ks`
+4. Change directory to `cd dist_demo_ks`
 
 5. Install kubeflow core components. 
     
