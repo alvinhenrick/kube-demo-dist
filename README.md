@@ -101,6 +101,12 @@
 
 `kubectl exec -it $(kubectl get pods -l seldon-app=imdb-classification -o=jsonpath='{.items[0].metadata.name}') --container imdb-classification -- /bin/bash`
 
+### DataAccess Container
+
+`kubectl exec -it dataaccess -- /bin/bash`
+`kubectl exec -it dataaccess -- ls -l /data`
+`kubectl exec -it dataaccess -- ls -l /model`
+
 ## References
 
 [Kubernetes](https://kubernetes.io/)
