@@ -11,6 +11,12 @@ login:
 push:
 	docker push ${TRAIN_IMAGE_BASE}:${VERSION}
 
+createpvc:
+	kubectl apply -f mystorage.yaml
+
+deletepvc:
+	kubectl delete -f mystorage.yaml
+
 train:
 	kubectl apply -f tfjobdist.yaml
 
